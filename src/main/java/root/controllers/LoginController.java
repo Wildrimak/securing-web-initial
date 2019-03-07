@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import root.response.Response;
+import root.response.ResponseError;
+import root.response.TokenResponse;
 import root.security.dto.LoginDTO;
-import root.security.dto.TokenDTO;
 import root.security.utils.JwtTokenUtil;
 
 @RestController
@@ -46,9 +46,9 @@ public class LoginController {
 	private UserDetailsService userDetailsService;
 	
 	@PostMapping
-	public ResponseEntity<Response<TokenDTO>> gerarTokenJwt(@Valid @RequestBody LoginDTO loginDTO, BindingResult result) throws AuthenticationException{
+	public ResponseEntity<ResponseError<TokenResponse>> gerarTokenJwt(@Valid @RequestBody LoginDTO loginDTO, BindingResult result) throws AuthenticationException{
 		
-		Response<TokenDTO> response = new Response<TokenDTO>();
+		ResponseError<TokenResponse> response = new ResponseError<TokenResponse>();
 		
 		if (result.hasErrors()) {
 			log.error("Erro validando lançamento: {} ", result.getAllErrors());
@@ -64,17 +64,17 @@ public class LoginController {
 		
 		UserDetails userDetails = userDetailsService.loadUserByUsername(loginDTO.getEmail());
 		String token = jwtTokenUtil.obterToken(userDetails);
-		response.setData(new TokenDTO(token));
+		response.setData(new TokenResponse(token));
 		
 		return ResponseEntity.ok(response);
 
 	}
 	
 	@PostMapping(value  = "/refresh")
-	public ResponseEntity<Response<TokenDTO>> gerarRefreshTokenJwt(HttpServletRequest request){
+	public ResponseEntity<ResponseError<TokenResponse>> gerarRefreshTokenJwt(HttpServletRequest request){
 		
 		log.info("Gerando refresh token JWT");
-		Response<TokenDTO> response = new Response<TokenDTO>();
+		ResponseError<TokenResponse> response = new ResponseError<TokenResponse>();
 		Optional<String> token = Optional.ofNullable(request.getHeader(TOKEN_HEADER));
 		
 		if(token.isPresent() && token.get().startsWith(BEARER_PREFIX)) {
@@ -92,7 +92,7 @@ public class LoginController {
 		}
 		
 		String refreshedToken = jwtTokenUtil.refreshToken(token.get());
-		response.setData(new TokenDTO(refreshedToken));
+		response.setData(new TokenResponse(refreshedToken));
 		
 		return ResponseEntity.ok(response);
 		

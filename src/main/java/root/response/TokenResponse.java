@@ -1,13 +1,13 @@
-package root.security.dto;
+package root.response;
 
-public class TokenDTO {
+public class TokenResponse {
 
 	private String token;
 
-	public TokenDTO() {
+	public TokenResponse() {
 	}
 
-	public TokenDTO(String token) {
+	public TokenResponse(String token) {
 		this.token = token;
 	}
 	

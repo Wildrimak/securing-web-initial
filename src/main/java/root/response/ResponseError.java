@@ -3,12 +3,12 @@ package root.response;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Response<T> {
+public class ResponseError<T> {
 
 	private T data;
 	private List<String> errors;
 	
-	public Response() {
+	public ResponseError() {
 	}
 
 	public T getData() {
