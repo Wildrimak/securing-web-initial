@@ -1,4 +1,4 @@
-package root.security.service.impl;
+package root.security.service;
 
 import java.util.Optional;
 
@@ -10,10 +10,9 @@ import org.springframework.stereotype.Service;
 
 import root.security.JwtUserFactory;
 import root.security.entities.Usuario;
-import root.security.service.UsuarioService;
 
 @Service
-public class JwtUserDetailsServiceImpl implements UserDetailsService {
+public class MyUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private UsuarioService usuarioService;
