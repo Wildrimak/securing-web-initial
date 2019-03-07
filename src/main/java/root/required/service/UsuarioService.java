@@ -1,12 +1,12 @@
-package root.security.service;
+package root.required.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import root.security.entities.Usuario;
-import root.security.repository.UsuarioRepository;
+import root.required.models.Usuario;
+import root.required.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {

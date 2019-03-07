@@ -8,8 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import root.security.entities.Usuario;
-import root.security.enums.Credencial;
+import root.required.models.Credencial;
+import root.required.models.Usuario;
 
 public class JwtUserFactory {
 

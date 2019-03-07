@@ -1,4 +1,4 @@
-package root.controllers;
+package root.required.controllers;
 
 import java.util.Optional;
 
@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import root.response.ResponseError;
-import root.response.TokenResponse;
-import root.security.dto.LoginDTO;
+import root.required.dto.LoginDTO;
+import root.required.responses.ResponseError;
+import root.required.responses.TokenResponse;
 import root.security.utils.JwtTokenUtil;
 
 @RestController

@@ -6,9 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import root.security.entities.Usuario;
-import root.security.enums.Credencial;
-import root.security.repository.UsuarioRepository;
+import root.required.models.Credencial;
+import root.required.models.Usuario;
+import root.required.repository.UsuarioRepository;
 import root.security.utils.SenhaUtils;
 
 @SpringBootApplication

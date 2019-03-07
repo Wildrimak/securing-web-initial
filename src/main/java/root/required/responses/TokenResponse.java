@@ -1,4 +1,4 @@
-package root.response;
+package root.required.responses;
 
 public class TokenResponse {
 

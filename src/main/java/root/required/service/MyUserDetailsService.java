@@ -1,4 +1,4 @@
-package root.security.service;
+package root.required.service;
 
 import java.util.Optional;
 
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import root.required.models.Usuario;
 import root.security.JwtUserFactory;
-import root.security.entities.Usuario;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {

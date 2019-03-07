@@ -1,4 +1,4 @@
-package root.response;
+package root.required.responses;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package root.security.dto;
+package root.required.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
