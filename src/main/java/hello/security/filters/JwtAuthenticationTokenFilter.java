@@ -23,7 +23,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 	private static final String BEARER_PREFIX = "Bearer ";
 
 	@Autowired
-	private UserDetailsService UserDetailsService;
+	private UserDetailsService userDetailsService;
 
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
@@ -42,7 +42,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 		if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-			UserDetails userDetails = this.UserDetailsService.loadUserByUsername(username);
+			UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
 			if (jwtTokenUtil.tokenValido(token)) {
 

@@ -56,7 +56,7 @@ public class LoginController {
 			return ResponseEntity.badRequest().body(response);
 		}
 		
-		log.info("Gerando token para o email {}.", loginDTO.getEmail());
+		log.info("Gerando token para o email {}", loginDTO.getEmail());
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getSenha()));
 		

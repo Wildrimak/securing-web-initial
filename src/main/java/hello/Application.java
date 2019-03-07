@@ -33,7 +33,7 @@ public class Application {
 			
 			Usuario admin = new Usuario();
 			admin.setEmail("vanusa@gmail.com");
-			admin.setCredencial(Credencial.ROLE_USUARIO);
+			admin.setCredencial(Credencial.ROLE_ADMIN);
 			admin.setSenha(SenhaUtils.gerarBCrypt("12345"));
 			this.usuarioRepository.save(admin);
 			
