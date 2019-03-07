@@ -1,4 +1,4 @@
-package root.security;
+package root.security.jwt;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -7,13 +7,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/exemplo")
+@RequestMapping("/api")
 public class ExemploController {
 
-	@GetMapping(value = "/{nome}")
+	@GetMapping(value = "/admin/{nome}")
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	public String exemplo(@PathVariable("nome") String nome) {
-		return "Olá " + nome;
+		return "Olá Supremo " + nome;
 	}
-	
+
+	@GetMapping(value = "/qualquer/{nome}")
+	@PreAuthorize("hasAnyRole('USUARIO, ADMIN')")
+	public String outroExemplo(@PathVariable("nome") String nome) {
+		return "Olá Usuário " + nome;
+	}
+
+	@GetMapping(value = "/usuario/{nome}")
+	@PreAuthorize("hasAnyRole('USUARIO')")
+	public String outroExemploUsuario(@PathVariable("nome") String nome) {
+		return "Olá exclusivo usuário " + nome;
+	}
 }

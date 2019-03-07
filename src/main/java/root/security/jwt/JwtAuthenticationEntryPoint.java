@@ -1,4 +1,4 @@
-package root.security;
+package root.security.jwt;
 
 import java.io.IOException;
 

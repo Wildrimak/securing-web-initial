@@ -28,7 +28,7 @@ import root.required.responses.TokenResponse;
 import root.security.utils.JwtTokenUtil;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/login")
 @CrossOrigin(origins = "*") //libera requisicao para todo mundo
 public class LoginController {
 

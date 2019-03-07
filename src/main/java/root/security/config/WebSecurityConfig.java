@@ -16,8 +16,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import root.security.JwtAuthenticationEntryPoint;
 import root.security.filters.JwtAuthenticationTokenFilter;
+import root.security.jwt.JwtAuthenticationEntryPoint;
 
 @Configuration
 @EnableWebSecurity
@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().exceptionHandling().authenticationEntryPoint(authentication).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-				.antMatchers("/auth/**", "/", "/home").permitAll().anyRequest().authenticated();
+				.antMatchers("/login/**", "/", "/home").permitAll().anyRequest().authenticated();
 	
 		httpSecurity.addFilterBefore(autheticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 		httpSecurity.headers().cacheControl();
@@ -61,13 +61,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return super.authenticationManagerBean();
 	}
 
-//	@Bean
-//	@Override
-//	protected UserDetailsService userDetailsService() {
-//
-//		UserDetails user = User.withUsername("wildrimak").roles("ADMIN").build();
-//
-//		return new InMemoryUserDetailsManager(user);
-//
-//	}
 }
